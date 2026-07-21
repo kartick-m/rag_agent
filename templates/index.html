@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RAG Agent Chat</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      line-height: 1.5;
+      padding: 2rem 1rem 6rem;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+    }
+    form { display: flex; flex-direction: column; gap: 0.75rem; }
+    textarea { width: 100%; min-height: 100px; padding: 0.75rem; }
+    button { width: fit-content; padding: 0.6rem 1rem; }
+    .card { border: 1px solid #ddd; border-radius: 8px; padding: 1rem; margin-top: 1rem; background: #fafafa; }
+    footer {
+      margin-top: auto;
+      padding: 1rem 1rem;
+      background: #6e5b8f;
+      color: #f4efff;
+      border-radius: 8px 8px 0 0;
+      position: sticky;
+      bottom: 0;
+      box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.12);
+    }
+    footer a {
+      color: #f4efff;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+    footer p { margin: 0.35rem 0 0; }
+  </style>
+</head>
+<body>
+  <h1>Ask the agent</h1>
+  <p>Type a question and the agent will answer using its retrieved context.</p>
+  <p style="color: grey; font-size: smaller;">Eg. What is ownership Transition risk?</p>
+
+  
+  <form method="post" action="/">
+    <label for="question">Ask a question</label>
+    <textarea id="question" name="question">{{ question }}</textarea>
+    <button type="submit">Ask</button>
+  </form>
+
+  {% if answer %}
+  <div class="card">
+    <h2>Answer</h2>
+    <p>{{ answer }}</p>
+  </div>
+  {% endif %}
+    <footer>
+        <a href="https://www.mckinsey.com/institute-for-economic-mobility/our-insights/the-great-ownership-transfer-a-new-era-of-business-stewardship">McKinsey Article Link</a>
+        <p>Readme: The Agent has summarised the information present in above given link and can give answers based on the article.</p>
+    </footer>
+</body>
+</html>
