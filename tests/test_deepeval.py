@@ -14,6 +14,9 @@ Run:
 """
 
 import pytest
+
+pytest.importorskip("deepeval")
+
 from deepeval import assert_test
 from deepeval.test_case import LLMTestCase
 from deepeval.metrics import (

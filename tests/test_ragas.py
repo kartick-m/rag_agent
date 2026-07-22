@@ -1,5 +1,10 @@
 # from langchain_community.chat_models
 
+import pytest
+
+pytest.importorskip("datasets")
+pytest.importorskip("ragas")
+
 from datasets import Dataset
 from ragas import evaluate
 from ragas.metrics import (
