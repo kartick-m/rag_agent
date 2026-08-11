@@ -12,13 +12,12 @@
     body {
       font-family: Arial, sans-serif;
       max-width: 800px;
-      height: 830px;
+      min-height: 100vh;
       line-height: 1.5;
-      padding: 2rem 1rem 6rem;
+      padding: 2rem 1rem 1rem;
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
-      /* min-height: 100vh; */
       margin: 0 auto;
     }
     form { display: flex; flex-direction: column; gap: 0.75rem; }
@@ -26,13 +25,11 @@
     button { width: fit-content; padding: 0.6rem 1rem; }
     .card { border: 1px solid #ddd; border-radius: 8px; padding: 1rem; margin-top: 1rem; background: #fafafa; }
     footer {
-      margin-top: auto;
+      margin-top: 2rem;
       padding: 0.85rem 1rem;
       background: #6e5b8f;
       color: #e7dff5;
       border-radius: 8px 8px 0 0;
-      position: fixed;
-      bottom: 0;
       box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.12);
       font-size: 0.8rem;
     }
