@@ -10,7 +10,7 @@ def format_docs(docs):
 
 
 retrieved_vectors = PineconeVectorStore.from_existing_index(
-index_name="mckinsey-report-1", embedding=embeddings
+    index_name="mckinsey-report-1", embedding=embeddings
 )
 retriever = retrieved_vectors.as_retriever(search_kwargs={"k": 5})
 
@@ -31,13 +31,14 @@ def retrieval_chain(query: str):
     This is a manual method.
     """
     docs = retriever.invoke(query)
-
     context = format_docs(docs=docs)
-
     messages = prompt_template.format_messages(context=context, question=query)
-
     response = llm.invoke(messages)
     return response.content
+
+
+def doc_check(context):
+    pass
 
 def retrieve(state):
     docs = retriever.invoke(state['user_prompt'])
